@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from TanteaPochaWSService WSDL service -->
+
+  <service name="TanteaPochaWS" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://tanteaPocha"/>
+      <parameter name="wsdlServiceElement" value="TanteaPochaWSService"/>
+      <parameter name="schemaQualified" value="http://tanteaPocha"/>
+      <parameter name="wsdlServicePort" value="TanteaPochaWS"/>
+      <parameter name="className" value="tanteaPocha.TanteaPochaWS"/>
+      <parameter name="wsdlPortType" value="TanteaPochaWS"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://tanteaPocha" xmlns:retNS="http://tanteaPocha" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="cerrarConexion" qname="operNS:cerrarConexion" returnQName="retNS:cerrarConexionReturn" returnType="rtns:boolean" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://tanteaPocha" xmlns:retNS="http://tanteaPocha" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="levantarConexion" qname="operNS:levantarConexion" returnQName="retNS:levantarConexionReturn" returnType="rtns:boolean" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://tanteaPocha" xmlns:retNS="http://tanteaPocha" xmlns:rtns="http://tanteaPocha" name="listarJugadores" qname="operNS:listarJugadores" returnQName="retNS:listarJugadoresReturn" returnType="rtns:Jugador" soapAction="">
+      </operation>
+      <parameter name="allowedMethods" value="cerrarConexion levantarConexion listarJugadores"/>
+
+      <typeMapping xmlns:ns="http://tanteaPocha" qname="ns:Jugador" type="java:tanteaPocha.Jugador" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+  </service>
+</deployment>

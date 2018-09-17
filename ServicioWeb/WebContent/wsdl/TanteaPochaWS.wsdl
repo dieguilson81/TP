@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://tanteaPocha" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://tanteaPocha" xmlns:intf="http://tanteaPocha" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://tanteaPocha" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="cerrarConexion">
+    <complexType/>
+   </element>
+   <element name="cerrarConexionResponse">
+    <complexType>
+     <sequence>
+      <element name="cerrarConexionReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="levantarConexion">
+    <complexType/>
+   </element>
+   <element name="levantarConexionResponse">
+    <complexType>
+     <sequence>
+      <element name="levantarConexionReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listarJugadores">
+    <complexType/>
+   </element>
+   <element name="listarJugadoresResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="listarJugadoresReturn" type="impl:Jugador"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="Jugador">
+    <sequence>
+     <element name="colorfavorito" nillable="true" type="xsd:string"/>
+     <element name="email" nillable="true" type="xsd:string"/>
+     <element name="fechanacimiento" nillable="true" type="xsd:string"/>
+     <element name="habilitado" nillable="true" type="xsd:string"/>
+     <element name="idjugadores" type="xsd:int"/>
+     <element name="nombre" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="levantarConexionRequest">
+
+      <wsdl:part element="impl:levantarConexion" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="cerrarConexionRequest">
+
+      <wsdl:part element="impl:cerrarConexion" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="levantarConexionResponse">
+
+      <wsdl:part element="impl:levantarConexionResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="listarJugadoresRequest">
+
+      <wsdl:part element="impl:listarJugadores" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="listarJugadoresResponse">
+
+      <wsdl:part element="impl:listarJugadoresResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="cerrarConexionResponse">
+
+      <wsdl:part element="impl:cerrarConexionResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="TanteaPochaWS">
+
+      <wsdl:operation name="cerrarConexion">
+
+         <wsdl:input message="impl:cerrarConexionRequest" name="cerrarConexionRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:cerrarConexionResponse" name="cerrarConexionResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="levantarConexion">
+
+         <wsdl:input message="impl:levantarConexionRequest" name="levantarConexionRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:levantarConexionResponse" name="levantarConexionResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listarJugadores">
+
+         <wsdl:input message="impl:listarJugadoresRequest" name="listarJugadoresRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:listarJugadoresResponse" name="listarJugadoresResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="TanteaPochaWSSoapBinding" type="impl:TanteaPochaWS">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="cerrarConexion">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="cerrarConexionRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="cerrarConexionResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="levantarConexion">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="levantarConexionRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="levantarConexionResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listarJugadores">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listarJugadoresRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listarJugadoresResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="TanteaPochaWSService">
+
+      <wsdl:port binding="impl:TanteaPochaWSSoapBinding" name="TanteaPochaWS">
+
+         <wsdlsoap:address location="http://localhost:8080/tanteaPocha/services/TanteaPochaWS"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
